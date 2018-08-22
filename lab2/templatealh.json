@@ -1,55 +1,70 @@
 {
     "parameters": {
-        "name": {
+        "WebAppName": {
             "type": "string"
         },
         "hostingPlanName": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Free"
         },
         "hostingEnvironment": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": ""
         },
         "location": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "West Europe"
         },
         "sku": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Free"
         },
         "skuCode": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "F1"
         },
         "workerSize": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "0"
         },
         "serverFarmResourceGroup": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "lab2"
         },
         "subscriptionId": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "edbeba7d-3fa0-45e6-8ca0-314c663d8c68"
         }
     },
+    
+    "variables": {
+        "VhostingPlanName": "[concat(parameters('hostingPlanName'),'-Plan')]",
+        "vWebAppPlanID": "[resourceId('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/')]"
+    },
+    
+
     "resources": [
         {
-            "apiVersion": "2016-03-01",
-            "name": "[parameters('name')]",
+            "apiVersion": "2014-06-01",
+            "name": "[parameters('WebAppName')]",
             "type": "Microsoft.Web/sites",
             "properties": {
-                "name": "[parameters('name')]",
-                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
+                "name": "[parameters('WebAppName')]",
+                "serverFarmId": "[variables('vWebAppPlanID')]",
                 "hostingEnvironment": "[parameters('hostingEnvironment')]"
             },
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+                "[variables('vWebAppPlanID')]"
             ]
         },
         {
             "apiVersion": "2016-09-01",
-            "name": "[parameters('hostingPlanName')]",
+            "name": "[variables('VhostingPlanName')]",
             "type": "Microsoft.Web/serverfarms",
             "location": "[parameters('location')]",
             "properties": {
-                "name": "[parameters('hostingPlanName')]",
+                "name": "[variables('VhostingPlanName')]",
                 "workerSizeId": "[parameters('workerSize')]",
                 "reserved": false,
                 "numberOfWorkers": "1",
