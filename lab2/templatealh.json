@@ -1,81 +1,45 @@
 {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "parameters": {
-        "WebAppName": {
+        "webAppName": {
             "type": "string"
-        },
-        "hostingPlanName": {
-            "type": "string",
-            "defaultValue": "Free"
-        },
-        "hostingEnvironment": {
-            "type": "string",
-            "defaultValue": ""
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "West Europe"
-        },
-        "sku": {
-            "type": "string",
-            "defaultValue": "Free"
-        },
-        "skuCode": {
-            "type": "string",
-            "defaultValue": "F1"
-        },
-        "workerSize": {
-            "type": "string",
-            "defaultValue": "0"
-        },
-        "serverFarmResourceGroup": {
-            "type": "string",
-            "defaultValue": "lab2"
-        },
-        "subscriptionId": {
-            "type": "string",
-            "defaultValue": "edbeba7d-3fa0-45e6-8ca0-314c663d8c68"
         }
     },
-    
     "variables": {
-        "VhostingPlanName": "[concat(parameters('hostingPlanName'),'-Plan')]",
-        "vWebAppPlanID": "[resourceId('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/')]"
+        "webAppPlan": "[concat(parameters('webAppName'), '-plan')]",
+        "webAppPlanId": "[resourceId('Microsoft.Web/serverfarms', variables('webAppPlan'))]"
     },
-    
-
     "resources": [
         {
-            "apiVersion": "2014-06-01",
-            "name": "[parameters('WebAppName')]",
+            "apiVersion": "2016-08-01",
+            "name": "[parameters('webAppName')]",
             "type": "Microsoft.Web/sites",
             "properties": {
-                "name": "[parameters('WebAppName')]",
-                "serverFarmId": "[variables('vWebAppPlanID')]",
-                "hostingEnvironment": "[parameters('hostingEnvironment')]"
+                "name": "[parameters('webAppName')]",
+                "serverFarmId": "[variables('webAppPlanId')]",
+                "hostingEnvironment": ""
             },
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[variables('vWebAppPlanID')]"
+                "[variables('webAppPlanId')]"
             ]
         },
         {
             "apiVersion": "2016-09-01",
-            "name": "[variables('VhostingPlanName')]",
+            "name": "[variables('webAppPlan')]",
             "type": "Microsoft.Web/serverfarms",
-            "location": "[parameters('location')]",
+            "location": "[resourceGroup().location]",
             "properties": {
-                "name": "[variables('VhostingPlanName')]",
-                "workerSizeId": "[parameters('workerSize')]",
+                "name": "[variables('webAppPlan')]",
+                "workerSizeId": "0",
                 "reserved": false,
-                "numberOfWorkers": "1",
-                "hostingEnvironment": "[parameters('hostingEnvironment')]"
+                "numberOfWorkers": "1"
             },
             "sku": {
-                "Tier": "[parameters('sku')]",
-                "Name": "[parameters('skuCode')]"
+                "Tier": "Free",
+                "Name": "F1"
             }
         }
-    ],
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0"
+    ]
 }
