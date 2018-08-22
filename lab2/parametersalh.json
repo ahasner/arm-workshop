@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "1950arm"
+        },
+        "hostingPlanName": {
+            "value": "Free"
+        },
+        "hostingEnvironment": {
+            "value": ""
+        },
+        "location": {
+            "value": "West Europe"
+        },
+        "sku": {
+            "value": "Free"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "serverFarmResourceGroup": {
+            "value": "lab2"
+        },
+        "skuCode": {
+            "value": "F1"
+        },
+        "subscriptionId": {
+            "value": "edbeba7d-3fa0-45e6-8ca0-314c663d8c68"
+        }
+    }
+}
