@@ -40,5 +40,10 @@
             }
         }
     ],
-    "outputs": {}
+    "outputs": {
+        "storageAccountname": {
+            "type": "string",
+            "value": "[variables('storageAccountname')]"
+        }
+    }
 }
