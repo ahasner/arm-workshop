@@ -5,7 +5,7 @@
         "storageAccount": {
            "type": "string",
            "metadata": {
-                "description": ""
+                "description": "Storage Account Name - must be unique"
             }
         },
         "accountType": {
