@@ -8,8 +8,14 @@
   
       "adminUsername": {
   
-        "value": "vmadmin"
+        "value": "ahasner"
   
+      },
+      "diagnosticsStorageAccountName": {
+        "value": "mynewrgdiag909"
+      },
+      "diagnosticsStorageAccountType": {
+        "value": "Standard_LRS"
       },
 
       "vnetName": {
@@ -32,7 +38,7 @@
       "adminPassword": {
         "reference": {
           "keyVault": {
-            "id": "/subscriptions/8b2ef784-0c0d-424c-8a7a-aa1304a0366a/resourceGroups/lab3/providers/Microsoft.KeyVault/vaults/robAsHackVault"
+            "id": "/subscriptions/030411e3-2d3b-4059-b271-e34f9310c73d/resourceGroups/WhatIsGoingON/providers/Microsoft.KeyVault/vaults/KeyMaster"
           },
           "secretName": "ubuntuDefaultPassword"
         }
@@ -40,7 +46,7 @@
   
       "dnsLabelPrefix": {
   
-        "value": "ashack3"
+        "value": "azalh1950"
   
       }
   
