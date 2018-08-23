@@ -1,0 +1,49 @@
+{
+
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  
+    "contentVersion": "1.0.0.0",
+  
+    "parameters": {
+  
+      "adminUsername": {
+  
+        "value": "vmadmin"
+  
+      },
+
+      "vnetName": {
+          "value": "ubuntuVnet"
+      },
+
+      "vnetPrefix": {
+        "value": "10.0.0.0/16"
+      },
+
+      "subnetName": {
+        "value": "ubuntuSubnet"
+      },
+
+      "subnetPrefix": {
+        "value": "10.0.0.0/24"
+      },
+
+  
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/8b2ef784-0c0d-424c-8a7a-aa1304a0366a/resourceGroups/lab3/providers/Microsoft.KeyVault/vaults/robAsHackVault"
+          },
+          "secretName": "ubuntuDefaultPassword"
+        }
+      },
+  
+      "dnsLabelPrefix": {
+  
+        "value": "ashack3"
+  
+      }
+  
+    }
+  
+  }

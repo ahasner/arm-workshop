@@ -1,0 +1,300 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_goaway_name": {
+            "defaultValue": "goaway",
+            "type": "String"
+        },
+        "sites_1950babtool_name": {
+            "defaultValue": "1950babtool",
+            "type": "String"
+        },
+        "serverfarms_oops_plan_name": {
+            "defaultValue": "oops-plan",
+            "type": "String"
+        },
+        "serverfarms_goaway_plan_name": {
+            "defaultValue": "goaway-plan",
+            "type": "String"
+        },
+        "serverfarms_mineapp_plan_name": {
+            "defaultValue": "mineapp-plan",
+            "type": "String"
+        },
+        "serverfarms_1950babtool_plan_name": {
+            "defaultValue": "1950babtool-plan",
+            "type": "String"
+        },
+        "serverfarms_richeneyarm_plan_name": {
+            "defaultValue": "richeneyarm-plan",
+            "type": "String"
+        },
+        "hostNameBindings_goaway.azurewebsites.net_name": {
+            "defaultValue": "goaway.azurewebsites.net",
+            "type": "String"
+        },
+        "hostNameBindings_1950babtool.azurewebsites.net_name": {
+            "defaultValue": "1950babtool.azurewebsites.net",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/serverfarms/1950babtool-plan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 0
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_1950babtool_plan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_1950babtool_plan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/serverfarms/goaway-plan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 0
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_goaway_plan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_goaway_plan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/serverfarms/mineapp-plan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 0
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_mineapp_plan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_mineapp_plan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/serverfarms/oops-plan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 0
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_oops_plan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_oops_plan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/serverfarms/richeneyarm-plan'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 0
+            },
+            "kind": "app",
+            "name": "[parameters('serverfarms_richeneyarm_plan_name')]",
+            "apiVersion": "2016-09-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "name": "[parameters('serverfarms_richeneyarm_plan_name')]",
+                "workerTierName": null,
+                "adminSiteName": null,
+                "hostingEnvironmentProfile": null,
+                "perSiteScaling": false,
+                "reserved": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/sites/1950babtool'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_1950babtool_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_1950babtool_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_1950babtool_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_1950babtool_plan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_1950babtool_plan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/sites/goaway'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_goaway_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_goaway_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_goaway_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_goaway_plan_name'))]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_goaway_plan_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/sites/1950babtool/hostNameBindings/1950babtool.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_1950babtool_name'), '/', parameters('hostNameBindings_1950babtool.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "siteName": "1950babtool",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_1950babtool_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/edbeba7d-3fa0-45e6-8ca0-314c663d8c68/resourceGroups/lab2/providers/Microsoft.Web/sites/goaway/hostNameBindings/goaway.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_goaway_name'), '/', parameters('hostNameBindings_goaway.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "siteName": "goaway",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_goaway_name'))]"
+            ]
+        }
+    ]
+}
